@@ -1,0 +1,39 @@
+{
+  "compatibleVersion": 3,
+  "bundleVersion": 1,
+  "icon": "icon.png",
+  "commands": [
+    {
+      "name": "to Document Colors",
+      "identifier": "Add-Selected-Colors-to-Document-Colors.add-seldeted-colors-identifier",
+      "script": "my-command.js"
+    },
+    {
+      "name": "to JSON file",
+      "identifier": "Add-Selected-Colors-to-JSON.add-json-identifier",
+      "script": "my-command.js",
+      "handler": "addJSON"
+    },
+    {
+      "name": "Reset Palette",
+      "identifier": "Reset-Palette.reset-palette-identifier",
+      "script": "my-command.js",
+      "handler": "resetPalette"
+    }
+  ],
+  "menu": {
+    "title": "Add Selected Colors...",
+    "items": [
+      "Add-Selected-Colors-to-Document-Colors.add-seldeted-colors-identifier",
+      "Add-Selected-Colors-to-JSON.add-json-identifier",
+      "Reset-Palette.reset-palette-identifier"
+    ]
+  },
+  "version": "0.1.0",
+  "name": "Add Selected colors to Document Palette",
+  "identifier": "Add-Selected-to-palette",
+  "disableCocoaScriptPreprocessor": true,
+  "appcast": "https://raw.githubusercontent.com//master/.appcast.xml",
+  "author": "Jorge Martins",
+  "authorEmail": "hello@jorgemartins.me"
+}

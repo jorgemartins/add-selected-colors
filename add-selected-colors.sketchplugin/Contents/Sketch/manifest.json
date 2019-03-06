@@ -35,5 +35,6 @@
   "disableCocoaScriptPreprocessor": true,
   "appcast": "https://raw.githubusercontent.com//master/.appcast.xml",
   "author": "Jorge Martins",
-  "authorEmail": "hello@jorgemartins.me"
+  "authorEmail": "hello@jorgemartins.me",
+  "description": "Add selected colors to document palette, sketch plugin"
 }

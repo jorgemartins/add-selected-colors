@@ -40,5 +40,10 @@
       "git add"
     ]
   },
-  "author": "Jorge Martins <hello@jorgemartins.me>"
+  "author": "Jorge Martins <hello@jorgemartins.me>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jorgemartins/add-selected-colors.git"
+  },
+  "description": "Add selected colors to document palette, sketch plugin",
 }

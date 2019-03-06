@@ -1,20 +1,11 @@
 const sketch = require('sketch');
-var colors = {};
+
+const colors = {};
 const app = NSApp.delegate();
 const doc = context.document;
 const documentData = doc.documentData();
 const assets = documentData.assets();
-const documentColors = assets.colorAssets();
 const layers = context.selection;
-
-
-const makeMSColorAsset = (hex, name) => {
-  const newMSColor = MSColor.alloc().initWithImmutableModelObject(
-    MSImmutableColor.colorWithSVGString(hex)
-  );
-  return MSColorAsset.alloc().initWithAsset_name(newMSColor, name);
-};
-
 
 const getColorHex = layer => {
   return `#${layer
@@ -33,7 +24,7 @@ const getColorRgba = layer => {
   const green = Math.round(layerColor.green() * 255);
   const blue = Math.round(layerColor.blue() * 255);
 
-  return 'rgba(' + red + ',' + green + ',' + blue + ',' + layerColor.alpha() + ')';
+  return `rgba(${red},${green},${blue},${layerColor.alpha()})`;
 };
 
 const getColorName = colorName => {
@@ -76,7 +67,6 @@ export default context => {
     sketch.UI.message("Selected Colors added to Document Palette");
   } else {
     sketch.UI.message("Select at least one Layer");
-    return;
   }
 };
 
@@ -91,15 +81,15 @@ export function addJSON() {
     const colorVariation = getColorVariation(layers[i].name());
     addColor(colorCode, colorName, colorVariation);
   }
-  //log JSON file
-  var save = NSSavePanel.savePanel();
+  // log JSON file
+  let save = NSSavePanel.savePanel();
   save.setNameFieldStringValue("palette.json");
   save.setAllowedFileTypes(["json"]);
   save.setAllowsOtherFileTypes(false);
   save.setExtensionHidden(false);
   if (save.runModal()) {
-    var filePath = save.URL().path();
-    var file = NSString.stringWithString(JSON.stringify(colors));
+    let filePath = save.URL().path();
+    let file = NSString.stringWithString(JSON.stringify(colors));
 
     file.writeToFile_atomically_encoding_error(filePath, true, NSUTF8StringEncoding, null);
   };
@@ -107,7 +97,6 @@ export function addJSON() {
 };
 
 export function resetPalette() {
-  console.log('Colors Reset')
   assets.setColorAssets([]);
   doc.inspectorController().closeAnyColorPopover();
   app.refreshCurrentDocument();

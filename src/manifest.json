@@ -32,6 +32,7 @@
   "version": "0.1.0",
   "name": "Add Selected colors to Document Palette",
   "identifier": "Add-Selected-to-palette",
+  "description": "Add colors from layers to Document palette or JSON",
   "disableCocoaScriptPreprocessor": true,
   "appcast": "https://raw.githubusercontent.com//master/.appcast.xml",
   "author": "Jorge Martins",

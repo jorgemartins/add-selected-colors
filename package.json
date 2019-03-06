@@ -45,5 +45,5 @@
     "type": "git",
     "url": "git+https://github.com/jorgemartins/add-selected-colors.git"
   },
-  "description": "Add selected colors to document palette, sketch plugin",
+  "description": "Add selected colors to document palette, sketch plugin"
 }

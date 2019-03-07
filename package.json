@@ -1,6 +1,6 @@
 {
   "name": "add-selected-colors",
-  "description": "Add selected colors to document palette, sketch plugin",
+  "description": "Sketch plugin to add colors from layers to Document palette (or JSON file)",
   "author": "Jorge Martins <hello@jorgemartins.me>",
   "repository": {
     "type": "git",

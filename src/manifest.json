@@ -4,7 +4,6 @@
   "author": "Jorge Martins",
   "authorEmail": "hello@jorgemartins.me",
   "homepage": "https: //github.com/jorgemartins/add-selected-colors",
-  "version": "0.1.0",
   "identifier": "me.jorgemartins.sketch.add-selected-colors",
   "appcast": "https://raw.githubusercontent.com/jorgemartins/add-selected-colors/master/.appcast.xml",
   "disableCocoaScriptPreprocessor": true,

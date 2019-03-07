@@ -1,6 +1,21 @@
 {
   "name": "add-selected-colors",
+  "description": "Add selected colors to document palette, sketch plugin",
+  "author": "Jorge Martins <hello@jorgemartins.me>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jorgemartins/add-selected-colors.git"
+  },
   "version": "0.11.0",
+  "keywords": [
+    "sketchplugin", 
+    "document palette"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jorgemartins/add-selected-colors/issues"
+  },
+  "homepage": "https://github.com/jorgemartins/add-selected-colors#readme",
   "engines": {
     "sketch": ">=3.0"
   },
@@ -39,11 +54,5 @@
       "eslint --quiet --rule 'prettier/prettier: [\"error\", {\"trailingComma\": \"es5\", \"singleQuote\": true}]'",
       "git add"
     ]
-  },
-  "author": "Jorge Martins <hello@jorgemartins.me>",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jorgemartins/add-selected-colors.git"
-  },
-  "description": "Add selected colors to document palette, sketch plugin"
+  }
 }

@@ -1,22 +1,31 @@
 {
+  "name": "Add Selected colors...",
+  "description": "Sketch plugin to add colors from layers to Document palette (or JSON file)",
+  "author": "Jorge Martins",
+  "authorEmail": "hello@jorgemartins.me",
+  "homepage": "https: //github.com/jorgemartins/add-selected-colors",
+  "version": "0.1.0",
+  "identifier": "me.jorgemartins.sketch.add-selected-colors",
+  "appcast": "https://raw.githubusercontent.com/jorgemartins/add-selected-colors/master/.appcast.xml",
+  "disableCocoaScriptPreprocessor": true,
   "compatibleVersion": 3,
   "bundleVersion": 1,
-  "icon": "icon.png",
+  "icon": "add-selected-colors.png",
   "commands": [
     {
       "name": "to Document Colors",
-      "identifier": "Add-Selected-Colors-to-Document-Colors.add-seldeted-colors-identifier",
+      "identifier": "add-selected-colors.document-colors",
       "script": "my-command.js"
     },
     {
       "name": "to JSON file",
-      "identifier": "Add-Selected-Colors-to-JSON.add-json-identifier",
+      "identifier": "add-selected-colors.file",
       "script": "my-command.js",
       "handler": "addJSON"
     },
     {
       "name": "Reset Palette",
-      "identifier": "Reset-Palette.reset-palette-identifier",
+      "identifier": "add-selected-colors.reset",
       "script": "my-command.js",
       "handler": "resetPalette"
     }
@@ -24,17 +33,10 @@
   "menu": {
     "title": "Add Selected Colors...",
     "items": [
-      "Add-Selected-Colors-to-Document-Colors.add-seldeted-colors-identifier",
-      "Add-Selected-Colors-to-JSON.add-json-identifier",
-      "Reset-Palette.reset-palette-identifier"
+      "add-selected-colors.document-colors",
+      "add-selected-colors.file",
+      "-",
+      "add-selected-colors.reset"
     ]
-  },
-  "version": "0.1.0",
-  "name": "Add Selected colors to Document Palette",
-  "identifier": "Add-Selected-to-palette",
-  "description": "Add colors from layers to Document palette or JSON",
-  "disableCocoaScriptPreprocessor": true,
-  "appcast": "https://raw.githubusercontent.com//master/.appcast.xml",
-  "author": "Jorge Martins",
-  "authorEmail": "hello@jorgemartins.me"
+  }
 }

@@ -6,7 +6,7 @@
     "type": "git",
     "url": "git+https://github.com/jorgemartins/add-selected-colors.git"
   },
-  "version": "0.11.1-0",
+  "version": "0.11.1",
   "keywords": [
     "sketchplugin",
     "document palette"

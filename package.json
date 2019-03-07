@@ -22,7 +22,10 @@
   "skpm": {
     "name": "add-selected-colors",
     "manifest": "src/manifest.json",
-    "main": "add-selected-colors.sketchplugin"
+    "main": "add-selected-colors.sketchplugin",
+    "assets": [
+      "assets/**/*"
+    ]
   },
   "scripts": {
     "build": "skpm-build",

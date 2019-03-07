@@ -2,7 +2,7 @@
 // eslint-disable-next-line import/no-unresolved
 const sketch = require('sketch');
 
-const colors = {};
+var colors = {};
 // eslint-disable-next-line no-undef
 const app = NSApp.delegate();
 const doc = context.document;
@@ -53,7 +53,7 @@ export default () => {
       );
       const colorName = getColorName(layers[i].name());
       const colorVariation = getColorVariation(layers[i].name());
-      const newColor = MSColorAsset.alloc().initWithAsset_name(colorCode, colorName + colorVariation);
+      const newColor = MSColorAsset.alloc().initWithAsset_name(colorCode, `${colorName}-${colorVariation}`);
       colorsDoc.push(newColor);
 
     }
@@ -69,29 +69,33 @@ export default () => {
 };
 
 export function addJSON() {
-  // eslint-disable-next-line no-plusplus
-  for (let i = 0; i < layers.length; i++) {
-    let colorCode = getColorHex(layers[i]);
-    if (colorCode === "#FFFFFF") {
-      colorCode = getColorRgba(layers[i]);
+  if (layers.length > 0) {
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < layers.length; i++) {
+      let colorCode = getColorHex(layers[i]);
+      if (colorCode === "#FFFFFF") {
+        colorCode = getColorRgba(layers[i]);
+      };
+      const colorName = getColorName(layers[i].name());
+      const colorVariation = getColorVariation(layers[i].name());
+      addColor(colorCode, colorName, colorVariation);
     };
-    const colorName = getColorName(layers[i].name());
-    const colorVariation = getColorVariation(layers[i].name());
-    addColor(colorCode, colorName, colorVariation);
-  };
-  // log JSON file
-  const save = NSSavePanel.savePanel();
-  save.setNameFieldStringValue("palette.json");
-  save.setAllowedFileTypes(["json"]);
-  save.setAllowsOtherFileTypes(false);
-  save.setExtensionHidden(false);
-  if (save.runModal()) {
-    const filePath = save.URL().path();
-    const file = NSString.stringWithString(JSON.stringify(colors));
+    // log JSON file
+    const save = NSSavePanel.savePanel();
+    save.setNameFieldStringValue("palette.json");
+    save.setAllowedFileTypes(["json"]);
+    save.setAllowsOtherFileTypes(false);
+    save.setExtensionHidden(false);
+    if (save.runModal()) {
+      const filePath = save.URL().path();
+      const file = NSString.stringWithString(JSON.stringify(colors));
 
-    file.writeToFile_atomically_encoding_error(filePath, true, NSUTF8StringEncoding, null);
-  };
-
+      file.writeToFile_atomically_encoding_error(filePath, true, NSUTF8StringEncoding, null);
+    };
+    sketch.UI.message("Selected Colors added to JSON file");
+  } else {
+    sketch.UI.message("Select at least one Layer");
+  }
 };
 
 export function resetPalette() {

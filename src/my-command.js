@@ -28,7 +28,7 @@ const getColorRgba = layer => {
   return `rgba(${red},${green},${blue},${layerColor.alpha()})`;
 };
 
-const getColorName = colorName => colorName.split("/")[0];
+const getColorName = colorName => colorName.split("/")[1].split("-")[0];
 
 const getColorVariation = colorName => colorName.split("/")[1].split("-")[1];
 

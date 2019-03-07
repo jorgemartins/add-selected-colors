@@ -1,9 +1,3 @@
-
-## how it works
-
-- Select color layers, name them with `color/color-value` format (example: blue/blue-100)
-- run the plugin: Add selected colors to... -> Document Colors
-
 ## What is this?
 
 This plugin is intended to automate the process of adding colors to a document palette.
@@ -16,7 +10,7 @@ Well, this plugin automates that process, and as a bonus you can export the same
 ## How
 
 1. Install the plugin
-2. Make sure your layers follow the name structure: `color/color-value` _(example: blue/blue-100)_
+2. Make sure your layers follow the name structure: `something/color-value` _(example: colors/blue-100)_
 3. (if you have colors on document colors palette, you might want to run `Add selected colors to.. -> Reset Palette`)
 4. select all color Layers you want to add to the palette, and run `Add selected colors to.. -> Document colors`
 5. Repeat 4. but choose `to JSON` to export the slected layers as a JSON list.

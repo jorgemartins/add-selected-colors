@@ -80,9 +80,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.addJSON = addJSON;
 exports.resetPalette = resetPalette;
+/* eslint-disable no-undef */
+// eslint-disable-next-line import/no-unresolved
 var sketch = __webpack_require__(1);
 
 var colors = {};
+// eslint-disable-next-line no-undef
 var app = NSApp.delegate();
 var doc = context.document;
 var documentData = doc.documentData();
@@ -115,18 +118,19 @@ var addColor = function addColor(code, name, variation) {
   colors[name][variation] = { value: code };
 };
 
-exports["default"] = function (context) {
+exports["default"] = function () {
   if (layers.length > 0) {
-    var _colors = [];
+    var colorsDoc = [];
+    // eslint-disable-next-line no-plusplus
     for (var i = 0; i < layers.length; i++) {
 
       var colorCode = MSColor.colorWithRed_green_blue_alpha(layers[i].style().fills().firstObject().color().red(), layers[i].style().fills().firstObject().color().green(), layers[i].style().fills().firstObject().color().blue(), layers[i].style().fills().firstObject().color().alpha());
       var colorName = getColorName(layers[i].name());
       var colorVariation = getColorVariation(layers[i].name());
       var newColor = MSColorAsset.alloc().initWithAsset_name(colorCode, colorName + colorVariation);
-      _colors.push(newColor);
+      colorsDoc.push(newColor);
     }
-    assets.addColorAssets(_colors);
+    assets.addColorAssets(colorsDoc);
     doc.inspectorController().closeAnyColorPopover();
     doc.reloadInspector();
     app.refreshCurrentDocument();
@@ -138,7 +142,7 @@ exports["default"] = function (context) {
 };
 
 function addJSON() {
-  var colors = [];
+  // eslint-disable-next-line no-plusplus
   for (var i = 0; i < layers.length; i++) {
     var colorCode = getColorHex(layers[i]);
     if (colorCode === "#FFFFFF") {
@@ -147,7 +151,7 @@ function addJSON() {
     var colorName = getColorName(layers[i].name());
     var colorVariation = getColorVariation(layers[i].name());
     addColor(colorCode, colorName, colorVariation);
-  }
+  };
   // log JSON file
   var save = NSSavePanel.savePanel();
   save.setNameFieldStringValue("palette.json");

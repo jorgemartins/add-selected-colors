@@ -1,14 +1,16 @@
+/* eslint-disable no-undef */
+// eslint-disable-next-line import/no-unresolved
 const sketch = require('sketch');
 
 const colors = {};
+// eslint-disable-next-line no-undef
 const app = NSApp.delegate();
 const doc = context.document;
 const documentData = doc.documentData();
 const assets = documentData.assets();
 const layers = context.selection;
 
-const getColorHex = layer => {
-  return `#${layer
+const getColorHex = layer => `#${layer
     .style()
     .fills()
     .firstObject()
@@ -16,7 +18,6 @@ const getColorHex = layer => {
     .immutableModelObject()
     .hexValue()
     .toString()}`;
-};
 
 const getColorRgba = layer => {
   const layerColor = layer.style().fills().firstObject().color().immutableModelObject();
@@ -27,13 +28,9 @@ const getColorRgba = layer => {
   return `rgba(${red},${green},${blue},${layerColor.alpha()})`;
 };
 
-const getColorName = colorName => {
-  return colorName.split("/")[0];
-};
+const getColorName = colorName => colorName.split("/")[0];
 
-const getColorVariation = colorName => {
-  return colorName.split("/")[1].split("-")[1];
-};
+const getColorVariation = colorName => colorName.split("/")[1].split("-")[1];
 
 const addColor = (code, name, variation) => {
   if (colors[name] === undefined) colors[name] = {};
@@ -42,12 +39,13 @@ const addColor = (code, name, variation) => {
 
 
 
-export default context => {
+export default () => {
   if (layers.length > 0) {
-    let colors = [];
+    const colorsDoc = [];
+    // eslint-disable-next-line no-plusplus
     for (let i = 0; i < layers.length; i++) {
 
-      let colorCode = MSColor.colorWithRed_green_blue_alpha(
+      const colorCode = MSColor.colorWithRed_green_blue_alpha(
         layers[i].style().fills().firstObject().color().red(),
         layers[i].style().fills().firstObject().color().green(),
         layers[i].style().fills().firstObject().color().blue(),
@@ -56,10 +54,10 @@ export default context => {
       const colorName = getColorName(layers[i].name());
       const colorVariation = getColorVariation(layers[i].name());
       const newColor = MSColorAsset.alloc().initWithAsset_name(colorCode, colorName + colorVariation);
-      colors.push(newColor);
+      colorsDoc.push(newColor);
 
     }
-    assets.addColorAssets(colors);
+    assets.addColorAssets(colorsDoc);
     doc.inspectorController().closeAnyColorPopover();
     doc.reloadInspector();
     app.refreshCurrentDocument();
@@ -71,7 +69,7 @@ export default context => {
 };
 
 export function addJSON() {
-  let colors = [];
+  // eslint-disable-next-line no-plusplus
   for (let i = 0; i < layers.length; i++) {
     let colorCode = getColorHex(layers[i]);
     if (colorCode === "#FFFFFF") {
@@ -80,16 +78,16 @@ export function addJSON() {
     const colorName = getColorName(layers[i].name());
     const colorVariation = getColorVariation(layers[i].name());
     addColor(colorCode, colorName, colorVariation);
-  }
+  };
   // log JSON file
-  let save = NSSavePanel.savePanel();
+  const save = NSSavePanel.savePanel();
   save.setNameFieldStringValue("palette.json");
   save.setAllowedFileTypes(["json"]);
   save.setAllowsOtherFileTypes(false);
   save.setExtensionHidden(false);
   if (save.runModal()) {
-    let filePath = save.URL().path();
-    let file = NSString.stringWithString(JSON.stringify(colors));
+    const filePath = save.URL().path();
+    const file = NSString.stringWithString(JSON.stringify(colors));
 
     file.writeToFile_atomically_encoding_error(filePath, true, NSUTF8StringEncoding, null);
   };

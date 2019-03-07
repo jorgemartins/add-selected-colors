@@ -18,6 +18,8 @@ Well, this plugin automates that process, and as a bonus you can export the same
 ## Thanks
 
 Thanks to [@helloimbguedes](https://github.com/helloimbguedes) for cleaning up the code and the initial structure.
+
 Thanks to [dkrape](https://sketchplugins.com/u/dkrape) for the starting point of how to approach this.
+
 Thanks to [@andrewfiorillo](https://github.com/andrewfiorillo) for [Sketch Palettes](https://github.com/andrewfiorillo/sketch-palettes) which this was also based on.
 

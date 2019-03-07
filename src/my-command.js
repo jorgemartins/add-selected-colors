@@ -2,7 +2,7 @@
 // eslint-disable-next-line import/no-unresolved
 const sketch = require('sketch');
 
-var colors = {};
+const colors = {};
 // eslint-disable-next-line no-undef
 const app = NSApp.delegate();
 const doc = context.document;
